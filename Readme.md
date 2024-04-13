@@ -1,4 +1,4 @@
-Markdown
+
 # Voice Operated Chatbot for Restaurants
 
 This Streamlit application implements a voice-operated chatbot for restaurants. Users can interact with the chatbot through voice commands or by typing text messages. The chatbot utilizes Google Generative AI to provide informative responses about restaurant dishes.
