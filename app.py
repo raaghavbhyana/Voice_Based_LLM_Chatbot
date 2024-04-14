@@ -16,8 +16,10 @@ for msg in st.session_state.messages:
         st.chat_message(msg["role"], avatar="🤖").write(msg["content"])
 
 def generate_response(query):
-    genai.configure(api_key="Enter Your Api Key Here")
-    model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",system_instruction="Welcome! to AAR Restaurant.You are  Chatbot assisting  at a restaurant.Your name is TopC.Explain information about dished in about 15-20 words")
+    prompt="""Welcome! to AAR Restaurant.You are  Chatbot assisting  at a restaurant.Your name is TopC.Explain information about dished in about 15-20 words.
+    Provide food recommendations based on your preferences in brief in about 15-20 words"""
+    genai.configure(api_key="Enter your api key here")
+    model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",system_instruction=prompt)
     response = model.generate_content(query,stream=True)
     response.resolve()
     engine=pyttsx3.init()
